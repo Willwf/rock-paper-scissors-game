@@ -17,6 +17,12 @@ export const GlobalStyle = createGlobalStyle`
 	#root {
     margin: 0 auto;
     height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 
   body {

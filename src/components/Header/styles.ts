@@ -6,11 +6,12 @@ export const Header = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  margin: 2rem;
+  margin-top: 2rem;
   padding: 1rem 1rem 1rem 2rem;
   border: .3rem solid ${colors.headerOutline};
   border-radius: .5rem;
   min-height: 10vh;
+  min-width: 85%;
 `
 export const Logo = styled.img`
   width: 25vw;
