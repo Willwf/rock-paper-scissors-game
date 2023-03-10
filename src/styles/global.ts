@@ -23,6 +23,8 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    position: relative;
   }
 
   body {

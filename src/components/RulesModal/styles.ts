@@ -14,7 +14,32 @@ export const RulesButton = styled.button`
 
   cursor: pointer;
 `
-export const RulesDiv = styled.div``
-export const RulesTitle = styled.h1``
-export const RulesImg = styled.img``
-export const CloseButton = styled.button``
+export const RulesDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 100vw;
+  height: 100vh;
+  background: white;
+
+  position: absolute;
+
+  &.hidden {
+    display: none;
+  }
+`
+export const RulesTitle = styled.h1`
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 3rem;
+`
+export const RulesImg = styled.img`
+  width: 80%;
+`
+
+export const CloseButton = styled.button`
+  background: transparent;
+  border: none;
+  cursor: pointer;
+`
