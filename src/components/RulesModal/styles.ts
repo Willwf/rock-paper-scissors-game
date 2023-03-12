@@ -11,6 +11,7 @@ export const RulesButton = styled.button`
   border: .3rem solid ${colors.headerOutline};
   border-radius: 1rem;
   padding: 1rem 4rem;
+  margin-bottom: 6rem;
 
   cursor: pointer;
 `
