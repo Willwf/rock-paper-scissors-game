@@ -14,6 +14,14 @@ export const RulesButton = styled.button`
   margin-bottom: 6rem;
 
   cursor: pointer;
+
+  &:hover {
+    background: #ffffff30;
+  }
+
+  &:active {
+    background: #ffffff91;
+  }
 `
 export const RulesDiv = styled.div`
   display: flex;
@@ -43,4 +51,8 @@ export const CloseButton = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
+
+  &:active {
+    opacity: 75%;
+  }
 `
