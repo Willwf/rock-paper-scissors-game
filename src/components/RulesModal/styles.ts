@@ -16,7 +16,8 @@ export const RulesButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background: #ffffff30;
+    background: white;
+    color: ${colors.darkText}
   }
 
   &:active {

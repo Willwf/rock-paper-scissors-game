@@ -17,21 +17,21 @@ export const HandShapeDivWrapper = styled.div`
   }
 
   &.paper {
-    grid-area: handPaper;
+    grid-area: firstElement;
     justify-self: start;
 
     background: linear-gradient(${colors.paperGradientFinal}, ${colors.paperGradientInitial});
   }
 
   &.scissors {
-    grid-area: handScissors;
+    grid-area: secondElement;
     justify-self: end;
     
     background: linear-gradient(${colors.scissorsGradientFinal}, ${colors.scissorsGradientInitial});
   }
 
   &.rock {
-    grid-area: handRock;
+    grid-area: thirdElement;
     
     background: linear-gradient(${colors.rockGradientFinal}, ${colors.rockGradientInitial});
   }

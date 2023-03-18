@@ -7,14 +7,18 @@ export function GameElement() {
 
   return HandShapeSelected ? (
     <Styles.GameElementResult>
-      <Styles.HandShapeSelectedDiv>
+      <Styles.HandShapeSelectedDiv className="playerPick">
         <HandShapeDivWrapper shape={HandShapeSelected} />
         <Styles.HandShapeSubtitle>YOU PICKED</Styles.HandShapeSubtitle>
       </Styles.HandShapeSelectedDiv>
-      <Styles.HandShapeSelectedDiv>
+      <Styles.HandShapeSelectedDiv className="housePick">
         <Styles.HandShapeLoading />
         <Styles.HandShapeSubtitle>THE HOUSE PICKED</Styles.HandShapeSubtitle>
       </Styles.HandShapeSelectedDiv>
+      <Styles.ResultDiv>
+        <Styles.ResultText>YOU WIN</Styles.ResultText>
+        <Styles.PlayAgainButton>PLAY AGAIN</Styles.PlayAgainButton>
+      </Styles.ResultDiv>
     </Styles.GameElementResult>
   ) : (
     <Styles.GameElement>
