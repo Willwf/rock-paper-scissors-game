@@ -3,12 +3,15 @@ import { HandShapeDivWrapper } from "../HandShapeDivWrapper";
 import * as Styles from "./styles";
 
 export function GameElement() {
-  const [HandShapeSelected, setHandShapeSelected] = useState("rock");
+  const [HandShapeSelected, setHandShapeSelected] = useState<string>("");
 
   return HandShapeSelected ? (
     <Styles.GameElementResult>
       <Styles.HandShapeSelectedDiv className="playerPick">
-        <HandShapeDivWrapper shape={HandShapeSelected} />
+        <HandShapeDivWrapper
+          setHandShapeSelected={setHandShapeSelected}
+          shape={HandShapeSelected}
+        />
         <Styles.HandShapeSubtitle>YOU PICKED</Styles.HandShapeSubtitle>
       </Styles.HandShapeSelectedDiv>
       <Styles.HandShapeSelectedDiv className="housePick">
@@ -22,9 +25,18 @@ export function GameElement() {
     </Styles.GameElementResult>
   ) : (
     <Styles.GameElement>
-      <HandShapeDivWrapper shape="paper" />
-      <HandShapeDivWrapper shape="scissors" />
-      <HandShapeDivWrapper shape="rock" />
+      <HandShapeDivWrapper
+        setHandShapeSelected={setHandShapeSelected}
+        shape="paper"
+      />
+      <HandShapeDivWrapper
+        setHandShapeSelected={setHandShapeSelected}
+        shape="scissors"
+      />
+      <HandShapeDivWrapper
+        setHandShapeSelected={setHandShapeSelected}
+        shape="rock"
+      />
     </Styles.GameElement>
   );
 }
