@@ -14,11 +14,11 @@ interface ShapeOptions {
 
 interface ComponentProps {
   setHandShapeSelected: Dispatch<SetStateAction<string>>;
-  shape: string;
+  iconShape: string;
 }
 
 export function HandShapeDivWrapper(props: ComponentProps) {
-  const { setHandShapeSelected, shape } = props;
+  const { setHandShapeSelected, iconShape } = props;
 
   const shapeProperties: ShapeOptions = {
     paper: {
@@ -36,20 +36,20 @@ export function HandShapeDivWrapper(props: ComponentProps) {
   };
 
   function handleClick(event: React.MouseEvent<HTMLDivElement>) {
-    const shape = event.currentTarget.dataset.shape;
-    setHandShapeSelected(shape ? shape : "");
+    const iconshape = event.currentTarget.dataset.iconshape;
+    setHandShapeSelected(iconshape ? iconshape : "");
   }
 
   return (
     <Styles.HandShapeDivWrapper
       onClick={handleClick}
-      data-shape={shape}
-      className={shape}
+      data-iconshape={iconShape}
+      className={iconShape}
     >
       <Styles.HandShapeDiv>
         <Styles.HandShapeImg
-          src={shapeProperties[shape].src}
-          alt={shapeProperties[shape].alt}
+          src={shapeProperties[iconShape].src}
+          alt={shapeProperties[iconShape].alt}
         />
       </Styles.HandShapeDiv>
     </Styles.HandShapeDivWrapper>
