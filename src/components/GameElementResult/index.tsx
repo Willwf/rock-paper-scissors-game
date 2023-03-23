@@ -10,6 +10,10 @@ interface ComponentProps {
 export function GameElementResult(props: ComponentProps) {
   const { setHandShapeSelected, HandShapeSelected } = props;
 
+  function handleClick() {
+    setHandShapeSelected("");
+  }
+
   return (
     <Styles.GameElementResult>
       <Styles.HandShapeSelectedDiv className="playerPick">
@@ -25,7 +29,9 @@ export function GameElementResult(props: ComponentProps) {
       </Styles.HandShapeSelectedDiv>
       <Styles.ResultDiv>
         <Styles.ResultText>YOU WIN</Styles.ResultText>
-        <Styles.PlayAgainButton>PLAY AGAIN</Styles.PlayAgainButton>
+        <Styles.PlayAgainButton onClick={handleClick}>
+          PLAY AGAIN
+        </Styles.PlayAgainButton>
       </Styles.ResultDiv>
     </Styles.GameElementResult>
   );
