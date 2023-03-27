@@ -59,12 +59,16 @@ export function GameElementResult(props: ComponentProps) {
         )}
         <Styles.HandShapeSubtitle>THE HOUSE PICKED</Styles.HandShapeSubtitle>
       </Styles.HandShapeSelectedDiv>
-      <Styles.ResultDiv>
-        <Styles.ResultText>YOU WIN</Styles.ResultText>
-        <Styles.PlayAgainButton onClick={handleClick}>
-          PLAY AGAIN
-        </Styles.PlayAgainButton>
-      </Styles.ResultDiv>
+      {loading ? (
+        ""
+      ) : (
+        <Styles.ResultDiv>
+          <Styles.ResultText>YOU WIN</Styles.ResultText>
+          <Styles.PlayAgainButton onClick={handleClick}>
+            PLAY AGAIN
+          </Styles.PlayAgainButton>
+        </Styles.ResultDiv>
+      )}
     </Styles.GameElementResult>
   );
 }
