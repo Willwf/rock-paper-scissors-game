@@ -39,6 +39,36 @@ export function GameElementResult(props: ComponentProps) {
     return handShapes[randomNumber];
   }
 
+  const houseHandShape = getRandomHandShape();
+
+  function getGameResult(
+    HandShapeSelected: string,
+    houseHandShape: string
+  ): string | undefined {
+    let gameResultString;
+
+    if (HandShapeSelected === "paper" && houseHandShape === "paper")
+      gameResultString = "DRAW";
+    if (HandShapeSelected === "paper" && houseHandShape === "scissors")
+      gameResultString = "YOU LOSE";
+    if (HandShapeSelected === "paper" && houseHandShape === "rock")
+      gameResultString = "YOU WIN";
+    if (HandShapeSelected === "rock" && houseHandShape === "paper")
+      gameResultString = "YOU LOSE";
+    if (HandShapeSelected === "rock" && houseHandShape === "scissors")
+      gameResultString = "YOU WIN";
+    if (HandShapeSelected === "rock" && houseHandShape === "rock")
+      gameResultString = "DRAW";
+    if (HandShapeSelected === "scissors" && houseHandShape === "paper")
+      gameResultString = "YOU WIN";
+    if (HandShapeSelected === "scissors" && houseHandShape === "scissors")
+      gameResultString = "DRAW";
+    if (HandShapeSelected === "scissors" && houseHandShape === "rock")
+      gameResultString = "YOU LOSE";
+
+    return gameResultString;
+  }
+
   return (
     <Styles.GameElementResult>
       <Styles.HandShapeSelectedDiv className="playerPick">
@@ -54,7 +84,7 @@ export function GameElementResult(props: ComponentProps) {
         ) : (
           <HandShapeDivWrapper
             setHandShapeSelected={setHandShapeSelected}
-            iconShape={getRandomHandShape()}
+            iconShape={houseHandShape}
           />
         )}
         <Styles.HandShapeSubtitle>THE HOUSE PICKED</Styles.HandShapeSubtitle>
@@ -63,7 +93,9 @@ export function GameElementResult(props: ComponentProps) {
         ""
       ) : (
         <Styles.ResultDiv>
-          <Styles.ResultText>YOU WIN</Styles.ResultText>
+          <Styles.ResultText>
+            {getGameResult(HandShapeSelected, houseHandShape)}
+          </Styles.ResultText>
           <Styles.PlayAgainButton onClick={handleClick}>
             PLAY AGAIN
           </Styles.PlayAgainButton>
