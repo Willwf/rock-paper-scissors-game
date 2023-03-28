@@ -5,6 +5,8 @@ import * as Styles from "./styles";
 interface ComponentProps {
   setHandShapeSelected: Dispatch<SetStateAction<string>>;
   HandShapeSelected: string;
+  setScore: Dispatch<SetStateAction<string>>;
+  score: string;
 }
 
 interface handShapes {
@@ -12,8 +14,9 @@ interface handShapes {
 }
 
 export function GameElementResult(props: ComponentProps) {
-  const { setHandShapeSelected, HandShapeSelected } = props;
+  const { setHandShapeSelected, HandShapeSelected, setScore, score } = props;
   const [loading, setLoading] = useState(true);
+  const [resultString, setResultString] = useState<string | undefined>("");
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -66,8 +69,19 @@ export function GameElementResult(props: ComponentProps) {
     if (HandShapeSelected === "scissors" && houseHandShape === "rock")
       gameResultString = "YOU LOSE";
 
+    if (gameResultString === "YOU WIN") {
+      const actualScore = Number(score) + 1;
+      setScore(actualScore.toString());
+      localStorage.setItem("score", score);
+    }
+
     return gameResultString;
   }
+
+  useEffect(() => {
+    const result = getGameResult(HandShapeSelected, houseHandShape);
+    setResultString(result);
+  }, []);
 
   return (
     <Styles.GameElementResult>
@@ -93,9 +107,7 @@ export function GameElementResult(props: ComponentProps) {
         ""
       ) : (
         <Styles.ResultDiv>
-          <Styles.ResultText>
-            {getGameResult(HandShapeSelected, houseHandShape)}
-          </Styles.ResultText>
+          <Styles.ResultText>{resultString}</Styles.ResultText>
           <Styles.PlayAgainButton onClick={handleClick}>
             PLAY AGAIN
           </Styles.PlayAgainButton>
