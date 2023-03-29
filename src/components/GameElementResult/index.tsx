@@ -26,7 +26,7 @@ export function GameElementResult(props: ComponentProps) {
     return () => clearTimeout(timeout);
   }, [HandShapeSelected]);
 
-  function handleClick() {
+  function handlePlayAgainButton() {
     setHandShapeSelected("");
   }
 
@@ -47,41 +47,32 @@ export function GameElementResult(props: ComponentProps) {
   function getGameResult(
     HandShapeSelected: string,
     houseHandShape: string
-  ): string | undefined {
-    let gameResultString;
-
-    if (HandShapeSelected === "paper" && houseHandShape === "paper")
-      gameResultString = "DRAW";
-    if (HandShapeSelected === "paper" && houseHandShape === "scissors")
-      gameResultString = "YOU LOSE";
-    if (HandShapeSelected === "paper" && houseHandShape === "rock")
-      gameResultString = "YOU WIN";
-    if (HandShapeSelected === "rock" && houseHandShape === "paper")
-      gameResultString = "YOU LOSE";
-    if (HandShapeSelected === "rock" && houseHandShape === "scissors")
-      gameResultString = "YOU WIN";
-    if (HandShapeSelected === "rock" && houseHandShape === "rock")
-      gameResultString = "DRAW";
-    if (HandShapeSelected === "scissors" && houseHandShape === "paper")
-      gameResultString = "YOU WIN";
-    if (HandShapeSelected === "scissors" && houseHandShape === "scissors")
-      gameResultString = "DRAW";
-    if (HandShapeSelected === "scissors" && houseHandShape === "rock")
-      gameResultString = "YOU LOSE";
-
-    if (gameResultString === "YOU WIN") {
-      const actualScore = Number(score) + 1;
-      setScore(actualScore.toString());
-      localStorage.setItem("score", score);
+  ): string {
+    if (HandShapeSelected === houseHandShape) {
+      return "DRAW";
+    } else if (
+      (HandShapeSelected === "rock" && houseHandShape === "scissors") ||
+      (HandShapeSelected === "scissors" && houseHandShape === "paper") ||
+      (HandShapeSelected === "paper" && houseHandShape === "rock")
+    ) {
+      return "YOU WIN";
+    } else {
+      return "YOU LOSE";
     }
-
-    return gameResultString;
   }
 
   useEffect(() => {
     const result = getGameResult(HandShapeSelected, houseHandShape);
     setResultString(result);
-  }, []);
+  }, [HandShapeSelected, houseHandShape]);
+
+  // useEffect(() => {
+  //   if (resultString === "YOU WIN") {
+  //     const actualScore = Number(score) + 1;
+  //     setScore(actualScore.toString());
+  //     localStorage.setItem("score", actualScore.toString());
+  //   }
+  // }, [resultString]);
 
   return (
     <Styles.GameElementResult>
@@ -108,7 +99,7 @@ export function GameElementResult(props: ComponentProps) {
       ) : (
         <Styles.ResultDiv>
           <Styles.ResultText>{resultString}</Styles.ResultText>
-          <Styles.PlayAgainButton onClick={handleClick}>
+          <Styles.PlayAgainButton onClick={handlePlayAgainButton}>
             PLAY AGAIN
           </Styles.PlayAgainButton>
         </Styles.ResultDiv>
