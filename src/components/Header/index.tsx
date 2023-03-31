@@ -9,10 +9,6 @@ interface HeaderProps {
 export function Header(props: HeaderProps) {
   const { score } = props;
 
-  useEffect(() => {
-    localStorage.setItem("score", score);
-  }, []);
-
   return (
     <Styles.Header>
       <Styles.Logo src={logo} alt="Logo written Rock, Paper, Scissors" />

@@ -16,12 +16,12 @@ interface handShapes {
 export function GameElementResult(props: ComponentProps) {
   const { setHandShapeSelected, HandShapeSelected, setScore, score } = props;
   const [loading, setLoading] = useState(true);
-  const [resultString, setResultString] = useState<string | undefined>("");
+  const [resultString, setResultString] = useState<string>("");
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timeout);
   }, [HandShapeSelected]);
@@ -55,6 +55,9 @@ export function GameElementResult(props: ComponentProps) {
       (HandShapeSelected === "scissors" && houseHandShape === "paper") ||
       (HandShapeSelected === "paper" && houseHandShape === "rock")
     ) {
+      const actualScore = Number(score) + 1;
+      setScore(actualScore.toString());
+      localStorage.setItem("score", actualScore.toString());
       return "YOU WIN";
     } else {
       return "YOU LOSE";
@@ -64,15 +67,7 @@ export function GameElementResult(props: ComponentProps) {
   useEffect(() => {
     const result = getGameResult(HandShapeSelected, houseHandShape);
     setResultString(result);
-  }, [HandShapeSelected, houseHandShape]);
-
-  // useEffect(() => {
-  //   if (resultString === "YOU WIN") {
-  //     const actualScore = Number(score) + 1;
-  //     setScore(actualScore.toString());
-  //     localStorage.setItem("score", actualScore.toString());
-  //   }
-  // }, [resultString]);
+  }, [HandShapeSelected]);
 
   return (
     <Styles.GameElementResult>
