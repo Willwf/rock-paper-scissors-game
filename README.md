@@ -23,8 +23,8 @@ Users should be able to:
 
 - View the optimal layout for the game depending on their device's screen size
 - Play Rock, Paper, Scissors against the computer
-- Maintain the state of the score after refreshing the browser _(optional)_
-- **Bonus**: Play Rock, Paper, Scissors, Lizard, Spock against the computer _(optional)_
+- Maintain the state of the score after refreshing the browser
+- **Bonus**: Play Rock, Paper, Scissors, Lizard, Spock against the computer
 
 ### Rules
 
@@ -71,6 +71,7 @@ In construction...
 - Semantic HTML5 markup
 - Typescript
 - Flexbox
+- Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Styled Components](https://styled-components.com/) - For styles
@@ -78,11 +79,15 @@ In construction...
 
 ### What I learned
 
+This is my first project where I've used TypeScript, aside from some exercises from videos and classes. It has been quite different because unexpected errors occurred due to behaviors that I had not encountered in previous projects. The notes and warnings from the IDE were very helpful to me. Although I am still learning, I have enjoyed using TypeScript. I had to spend some time thinking about the logic to make the game work and had to do a lot of research to make it happen. I had previously used Grid, but in this project, I learned different ways to achieve my desired outcome.
+
 ```
 In construction...
 ```
 
 ### Continued development
+
+I plan to continue using TypeScript in my future projects to enhance my understanding and broaden my expertise.
 
 ```
 In construction...
@@ -90,12 +95,8 @@ In construction...
 
 ### Useful resources
 
-```
-In construction...
-```
-
-<!-- - [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept. -->
+- [ChatGPT](https://openai.com/blog/chatgpt/) - This helped me to explore and utilize many things that I was unfamiliar with. Even when I encountered incorrect responses or outdated information, I was able to extract valuable insights that helped me complete or advance a feature. It's an amazing tool for a student when used well.
+- [Stack Overflown](https://stackoverflow.com/) - With the answers I was able to discover and learn a lot of things to make my project work.
 
 ## Author
 
