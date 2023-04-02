@@ -35,6 +35,14 @@ export const HandShapeDivWrapper = styled.div`
     
     background: linear-gradient(${colors.rockGradientFinal}, ${colors.rockGradientInitial});
   }
+
+  @media (min-width: 40em) {
+    width: 16rem;
+    height: 16rem;
+
+    border-bottom: 0.8rem solid #00000040;
+  }
+
 `
 
 export const HandShapeDiv = styled.div`
@@ -53,7 +61,18 @@ export const HandShapeDiv = styled.div`
   &:hover {
     background-color: #c8c8c8;
   }
+
+  @media (min-width: 40em) {
+    width: 12rem;
+    height: 12rem;
+
+    border-top: .8rem solid #00000029;
+  }
 `
 export const HandShapeImg = styled.img`
   width: 40%;
+
+  @media (min-width: 40em) {
+    width: 45%;
+  }
 `

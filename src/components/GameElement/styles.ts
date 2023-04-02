@@ -15,4 +15,9 @@ export const GameElement = styled.div`
     "firstElement secondElement"
     "thirdElement thirdElement";
   justify-items: center;
+
+  @media (min-width: 40em) {
+    min-width: 50%;
+    height: 60%;
+  }
 `

@@ -12,10 +12,21 @@ export const Header = styled.header`
   border-radius: .5rem;
   min-height: 10vh;
   min-width: 85%;
+
+  @media (min-width: 40em) {
+    margin-top: 0;
+    border-radius: 1rem;
+    min-height: 15vh;
+    min-width: 60%;
+  }
 `
 export const Logo = styled.img`
   width: 25vw;
   height: fit-content;
+
+  @media (min-width: 40em) {
+    width: 15vw;
+  }
 `
 export const ScoreDiv = styled.div`
   display: flex;
@@ -27,6 +38,11 @@ export const ScoreDiv = styled.div`
   height: 20vw;
   background: white;
   border-radius: .5rem;
+
+  @media (min-width: 40em) {
+    width: 12vw;
+    height: 10vw;
+  }
 `
 export const ScoreText = styled.p`
   font-size: 1.2rem;

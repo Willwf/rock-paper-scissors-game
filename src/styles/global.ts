@@ -25,6 +25,11 @@ export const GlobalStyle = createGlobalStyle`
     align-items: center;
 
     position: relative;
+
+    @media (min-width: 40em) {
+      justify-content: space-evenly;
+    }
+
   }
 
   body {

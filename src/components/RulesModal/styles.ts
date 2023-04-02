@@ -23,6 +23,17 @@ export const RulesButton = styled.button`
   &:active {
     background: #ffffff91;
   }
+
+  @media (min-width: 40em) {
+    font-size: 1.3rem;
+
+    padding: 0.8rem 3rem;
+    margin-bottom: 0;
+
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+  }
 `
 export const RulesDiv = styled.div`
   display: flex;
