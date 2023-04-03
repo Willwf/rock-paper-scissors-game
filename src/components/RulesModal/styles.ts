@@ -35,11 +35,10 @@ export const RulesButton = styled.button`
     right: 2rem;
   }
 `
+
 export const RulesDiv = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 
   width: 100vw;
   height: 100vh;
@@ -50,13 +49,59 @@ export const RulesDiv = styled.div`
   &.hidden {
     display: none;
   }
+
+  @media (min-width: 40em) {
+    align-items: center;
+
+    background: #00000070;
+  }
 `
+
+export const RulesInnerDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+
+  @media (min-width: 40em) {
+    background: white;
+    
+    width: 40vw;
+    height: 40vw;
+    border-radius: .5rem;
+
+    display: grid;
+    justify-items: center;
+    grid-template:
+      "rulesTitle closeButton" 1fr
+      "rulesImage rulesImage" 5fr
+      / 1fr 1fr
+  }
+`
+
 export const RulesTitle = styled.h1`
   font-family: 'Barlow Semi Condensed', sans-serif;
   font-size: 3rem;
+
+  @media (min-width: 40em) {
+    grid-area: rulesTitle;
+    margin-left: 2rem;
+    justify-self: start;
+    align-self: end;
+
+    font-size: 2.5rem;
+  }
 `
+
 export const RulesImg = styled.img`
   width: 80%;
+
+  @media (min-width: 40em) {
+    width: 80%;
+    
+    grid-area: rulesImage;
+  }
 `
 
 export const CloseButton = styled.button`
@@ -66,5 +111,16 @@ export const CloseButton = styled.button`
 
   &:active {
     opacity: 75%;
+  }
+
+  @media (min-width: 40em) {
+    grid-area: closeButton;
+    margin-right: 2rem;
+    justify-self: end;
+    align-self: end;
+
+    & img {
+      width: 1.5rem;
+    }
   }
 `
