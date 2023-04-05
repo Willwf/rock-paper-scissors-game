@@ -5,14 +5,17 @@ export const GameElementResult = styled.div`
   min-width: 85%;
   height: 42.5%;
 
-  display: flex;
-  justify-content: space-between;
-
   display: grid;
   grid-template-areas:
     "firstElement secondElement"
     "thirdElement thirdElement";
   justify-items: center;
+
+  @media (min-width: 40em) {
+    grid-template-areas:
+    "firstElement thirdElement secondElement";
+    align-items: center;
+  }
 `
 
 export const HandShapeSelectedDiv = styled.div`
@@ -29,6 +32,10 @@ export const HandShapeSelectedDiv = styled.div`
     grid-area: secondElement;
     justify-self: end;
   }
+
+  @media (min-width: 40em) {
+    flex-direction: column-reverse;
+  }
 `
 
 export const HandShapeSubtitle = styled.p`
@@ -38,6 +45,13 @@ color: white;
 letter-spacing: .2rem;
 
 margin-top: 2rem;
+
+@media (min-width: 40em) {
+  font-size: 2rem;
+
+  margin-top: 0;
+  margin-bottom: 4rem;
+}
 `
 
 export const HandShapeLoading = styled.div`
@@ -57,6 +71,11 @@ export const ResultDiv = styled.div`
   grid-area: thirdElement;
   padding-top: 6rem;
   width: 25rem;
+
+  @media (min-width: 40em) {
+    padding-top: 0;
+  }
+
 `
 
 export const ResultText = styled.p`
