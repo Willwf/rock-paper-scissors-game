@@ -24,14 +24,17 @@ export function GameElement(props: gameElementProps) {
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="paper"
+        isLarge={false}
       />
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="scissors"
+        isLarge={false}
       />
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="rock"
+        isLarge={false}
       />
     </Styles.GameElement>
   );

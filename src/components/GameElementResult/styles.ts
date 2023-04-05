@@ -16,6 +16,10 @@ export const GameElementResult = styled.div`
     "firstElement thirdElement secondElement";
     align-items: center;
   }
+
+  @media (min-width: 65em) {
+    min-width: 70%;
+  }
 `
 
 export const HandShapeSelectedDiv = styled.div`

@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import * as colors from "../../styles/variables"
 
-export const HandShapeDivWrapper = styled.div`
+interface HandShapeDivWrapperProps {
+  isLarge: boolean;
+}
+
+export const HandShapeDivWrapper = styled.div<HandShapeDivWrapperProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,15 +41,19 @@ export const HandShapeDivWrapper = styled.div`
   }
 
   @media (min-width: 40em) {
-    width: 16rem;
-    height: 16rem;
+    width: ${(props) => (props.isLarge ? "20rem" : "16rem")};
+    height: ${(props) => (props.isLarge ? "20rem" : "16rem")};
 
     border-bottom: 0.8rem solid #00000040;
   }
 
+  @media (min-width: 65em) {
+    width: ${(props) => (props.isLarge ? "22rem" : "16rem")};
+    height: ${(props) => (props.isLarge ? "22rem" : "16rem")};
+  }
 `
 
-export const HandShapeDiv = styled.div`
+export const HandShapeDiv = styled.div<HandShapeDivWrapperProps>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,10 +71,15 @@ export const HandShapeDiv = styled.div`
   }
 
   @media (min-width: 40em) {
-    width: 12rem;
-    height: 12rem;
+    width: ${(props) => (props.isLarge ? "14rem" : "12rem")};
+    height: ${(props) => (props.isLarge ? "14rem" : "12rem")};
 
     border-top: .8rem solid #00000029;
+  }
+
+  @media (min-width: 65em) {
+    width: ${(props) => (props.isLarge ? "16rem" : "12rem")};
+    height: ${(props) => (props.isLarge ? "16rem" : "12rem")};
   }
 `
 export const HandShapeImg = styled.img`

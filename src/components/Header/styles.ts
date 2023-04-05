@@ -19,6 +19,10 @@ export const Header = styled.header`
     min-height: 15vh;
     min-width: 60%;
   }
+
+  @media (min-width: 65em) {
+    padding: 1.5rem;
+  }
 `
 export const Logo = styled.img`
   width: 25vw;
@@ -47,13 +51,22 @@ export const ScoreDiv = styled.div`
 export const ScoreText = styled.p`
   font-size: 1.2rem;
   font-family: 'Barlow Semi Condensed', sans-serif;
-  color: ${colors.scoreText}
+  color: ${colors.scoreText};
+
+  @media (min-width: 65em) {
+    font-size: 1.6rem;
+    letter-spacing: .2rem;
+  }
 `
 
 export const ScoreNumber = styled.p`
   font-size: 4rem;
   font-weight: bold;
   font-family: 'Barlow Semi Condensed', sans-serif;
-  color: ${colors.darkText}
+  color: ${colors.darkText};
 
+  @media (min-width: 65em) {
+    font-size: 6rem;
+    line-height: 6rem;
+  }
 `

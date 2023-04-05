@@ -11,7 +11,7 @@ export const RulesButton = styled.button`
   border: .3rem solid ${colors.headerOutline};
   border-radius: 1rem;
   padding: 1rem 4rem;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
 
   cursor: pointer;
 
@@ -78,6 +78,11 @@ export const RulesInnerDiv = styled.div`
       "rulesImage rulesImage" 5fr
       / 1fr 1fr
   }
+
+  @media (min-width: 65em) {
+    width: 30vw;
+    height: 30vw;
+  }
 `
 
 export const RulesTitle = styled.h1`
@@ -91,6 +96,10 @@ export const RulesTitle = styled.h1`
     align-self: end;
 
     font-size: 2.5rem;
+  }
+
+  @media (min-width: 65em) {
+    font-size: 3rem;
   }
 `
 
@@ -121,6 +130,12 @@ export const CloseButton = styled.button`
 
     & img {
       width: 1.5rem;
+    }
+  }
+
+  @media (min-width: 65em) {
+    & img {
+      width: 2rem;
     }
   }
 `

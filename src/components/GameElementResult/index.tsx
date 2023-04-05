@@ -78,6 +78,7 @@ export function GameElementResult(props: ComponentProps) {
         <HandShapeDivWrapper
           setHandShapeSelected={setHandShapeSelected}
           iconShape={HandShapeSelected}
+          isLarge={true}
         />
         <Styles.HandShapeSubtitle>YOU PICKED</Styles.HandShapeSubtitle>
       </Styles.HandShapeSelectedDiv>
@@ -88,6 +89,7 @@ export function GameElementResult(props: ComponentProps) {
           <HandShapeDivWrapper
             setHandShapeSelected={setHandShapeSelected}
             iconShape={houseHandShape}
+            isLarge={true}
           />
         )}
         <Styles.HandShapeSubtitle>THE HOUSE PICKED</Styles.HandShapeSubtitle>

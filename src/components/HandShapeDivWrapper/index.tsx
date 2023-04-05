@@ -15,10 +15,11 @@ interface ShapeOptions {
 interface ComponentProps {
   setHandShapeSelected: Dispatch<SetStateAction<string>>;
   iconShape: string;
+  isLarge: boolean;
 }
 
 export function HandShapeDivWrapper(props: ComponentProps) {
-  const { setHandShapeSelected, iconShape } = props;
+  const { setHandShapeSelected, iconShape, isLarge } = props;
 
   const shapeProperties: ShapeOptions = {
     paper: {
@@ -45,8 +46,9 @@ export function HandShapeDivWrapper(props: ComponentProps) {
       onClick={handleClick}
       data-iconshape={iconShape}
       className={iconShape}
+      isLarge={isLarge}
     >
-      <Styles.HandShapeDiv>
+      <Styles.HandShapeDiv isLarge={isLarge}>
         <Styles.HandShapeImg
           src={shapeProperties[iconShape].src}
           alt={shapeProperties[iconShape].alt}

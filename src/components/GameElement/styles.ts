@@ -20,4 +20,8 @@ export const GameElement = styled.div`
     min-width: 50%;
     height: 60%;
   }
+
+  @media (min-width: 65em) {
+    min-width: 35%;
+  }
 `
