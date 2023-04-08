@@ -24,8 +24,43 @@ export const Header = styled.header`
     padding: 1.5rem;
   }
 `
+
+export const GameSelectorDiv = styled.div`
+  position: relative;
+`
+
+export const GameLogoDiv = styled.div`
+  display: flex;
+  gap: 1rem;
+  
+  border-radius: .5rem;
+  padding: .5rem;
+
+  svg {
+    width: 1rem;
+    color: white;
+  }
+
+  &.secondOption {
+    position: absolute;
+
+    background-color: #8087a6ad;
+    width: 100%;
+  }
+
+  &.secondOption.hidden {
+    display: none;
+  }
+
+  &:hover {
+    border: 1px solid white;
+    cursor: pointer;
+  }
+`
+
 export const Logo = styled.img`
-  width: 25vw;
+  max-width: 25vw;
+  max-height: 20vw;
   height: fit-content;
 
   @media (min-width: 40em) {
