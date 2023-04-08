@@ -13,10 +13,23 @@ interface handShapes {
   [key: string]: string;
 }
 
+function getRandomHandShape() {
+  const handShapes: handShapes = {
+    "1": "paper",
+    "2": "scissors",
+    "3": "rock",
+  };
+
+  const randomNumber = (Math.floor(Math.random() * 3) + 1).toString();
+
+  return handShapes[randomNumber];
+}
+
 export function GameElementResult(props: ComponentProps) {
   const { setHandShapeSelected, HandShapeSelected, setScore, score } = props;
   const [loading, setLoading] = useState(true);
   const [resultString, setResultString] = useState<string>("");
+  const [houseHandShape, setHouseHandShape] = useState<string>("");
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -29,20 +42,6 @@ export function GameElementResult(props: ComponentProps) {
   function handlePlayAgainButton() {
     setHandShapeSelected("");
   }
-
-  function getRandomHandShape() {
-    const handShapes: handShapes = {
-      "1": "paper",
-      "2": "scissors",
-      "3": "rock",
-    };
-
-    const randomNumber = (Math.floor(Math.random() * 3) + 1).toString();
-
-    return handShapes[randomNumber];
-  }
-
-  const houseHandShape = getRandomHandShape();
 
   function getGameResult(
     HandShapeSelected: string,
@@ -68,8 +67,10 @@ export function GameElementResult(props: ComponentProps) {
   }
 
   useEffect(() => {
-    const result = getGameResult(HandShapeSelected, houseHandShape);
+    const randomHouseHandShape = getRandomHandShape();
+    const result = getGameResult(HandShapeSelected, randomHouseHandShape);
     setResultString(result);
+    setHouseHandShape(randomHouseHandShape);
   }, [HandShapeSelected]);
 
   return (

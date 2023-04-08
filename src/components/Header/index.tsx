@@ -1,6 +1,5 @@
 import * as Styles from "./styles";
 import logo from "../../assets/images/logo.svg";
-import { Dispatch, SetStateAction, useEffect } from "react";
 
 interface HeaderProps {
   score: string;
