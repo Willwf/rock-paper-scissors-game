@@ -18,14 +18,32 @@ export function Header(props: HeaderProps) {
     setOpenGameOptions(!openGameOptions);
   }
 
+  function selectGame(game: string) {
+    if (game === "RPS") {
+      setIsDefaultGameSelected(true);
+    } else {
+      setIsDefaultGameSelected(false);
+    }
+  }
+
   return (
     <Styles.Header>
       <Styles.GameSelectorDiv onClick={toggleOptions}>
         <Styles.GameLogoDiv>
-          <Styles.Logo
-            src={isDefaultGameSelected ? RPSlogo : RPSLSlogo}
-            alt="Logo written Rock, Paper, Scissors"
-          />
+          {isDefaultGameSelected ? (
+            <Styles.Logo
+              src={RPSlogo}
+              alt="Logo written Rock, Paper, Scissors"
+              onClick={() => selectGame("RPS")}
+            />
+          ) : (
+            <Styles.Logo
+              src={RPSLSlogo}
+              alt="Logo written Rock, Paper, Scissors"
+              onClick={() => selectGame("RPSLS")}
+            />
+          )}
+
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="ionicon"
@@ -45,10 +63,19 @@ export function Header(props: HeaderProps) {
         <Styles.GameLogoDiv
           className={`secondOption ${openGameOptions ? "" : "hidden"}`}
         >
-          <Styles.Logo
-            src={isDefaultGameSelected ? RPSLSlogo : RPSlogo}
-            alt="Logo written Rock, Paper, Scissors"
-          />
+          {isDefaultGameSelected ? (
+            <Styles.Logo
+              src={RPSLSlogo}
+              alt="Logo written Rock, Paper, Scissors"
+              onClick={() => selectGame("RPSLS")}
+            />
+          ) : (
+            <Styles.Logo
+              src={RPSlogo}
+              alt="Logo written Rock, Paper, Scissors"
+              onClick={() => selectGame("RPS")}
+            />
+          )}
         </Styles.GameLogoDiv>
       </Styles.GameSelectorDiv>
       <Styles.ScoreDiv>
