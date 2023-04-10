@@ -7,16 +7,23 @@ interface gameElementProps {
   score: string;
   setScore: Dispatch<SetStateAction<string>>;
   isDefaultGameSelected: boolean;
+  handShapeSelected: string;
+  setHandShapeSelected: Dispatch<SetStateAction<string>>;
 }
 
 export function GameElement(props: gameElementProps) {
-  const { setScore, score, isDefaultGameSelected } = props;
-  const [HandShapeSelected, setHandShapeSelected] = useState<string>("");
+  const {
+    setScore,
+    score,
+    isDefaultGameSelected,
+    handShapeSelected,
+    setHandShapeSelected,
+  } = props;
 
-  return HandShapeSelected ? (
+  return handShapeSelected ? (
     <GameElementResult
       setHandShapeSelected={setHandShapeSelected}
-      HandShapeSelected={HandShapeSelected}
+      handShapeSelected={handShapeSelected}
       setScore={setScore}
       score={score}
     />

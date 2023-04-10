@@ -4,7 +4,7 @@ import * as Styles from "./styles";
 
 interface ComponentProps {
   setHandShapeSelected: Dispatch<SetStateAction<string>>;
-  HandShapeSelected: string;
+  handShapeSelected: string;
   setScore: Dispatch<SetStateAction<string>>;
   score: string;
 }
@@ -26,7 +26,7 @@ function getRandomHandShape() {
 }
 
 export function GameElementResult(props: ComponentProps) {
-  const { setHandShapeSelected, HandShapeSelected, setScore, score } = props;
+  const { setHandShapeSelected, handShapeSelected, setScore, score } = props;
   const [loading, setLoading] = useState(true);
   const [resultString, setResultString] = useState<string>("");
   const [houseHandShape, setHouseHandShape] = useState<string>("");
@@ -37,22 +37,22 @@ export function GameElementResult(props: ComponentProps) {
     }, 1000);
 
     return () => clearTimeout(timeout);
-  }, [HandShapeSelected]);
+  }, [handShapeSelected]);
 
   function handlePlayAgainButton() {
     setHandShapeSelected("");
   }
 
   function getGameResult(
-    HandShapeSelected: string,
+    handShapeSelected: string,
     houseHandShape: string
   ): string {
-    if (HandShapeSelected === houseHandShape) {
+    if (handShapeSelected === houseHandShape) {
       return "DRAW";
     } else if (
-      (HandShapeSelected === "rock" && houseHandShape === "scissors") ||
-      (HandShapeSelected === "scissors" && houseHandShape === "paper") ||
-      (HandShapeSelected === "paper" && houseHandShape === "rock")
+      (handShapeSelected === "rock" && houseHandShape === "scissors") ||
+      (handShapeSelected === "scissors" && houseHandShape === "paper") ||
+      (handShapeSelected === "paper" && houseHandShape === "rock")
     ) {
       const actualScore = Number(score) + 1;
       setScore(actualScore.toString());
@@ -68,17 +68,17 @@ export function GameElementResult(props: ComponentProps) {
 
   useEffect(() => {
     const randomHouseHandShape = getRandomHandShape();
-    const result = getGameResult(HandShapeSelected, randomHouseHandShape);
+    const result = getGameResult(handShapeSelected, randomHouseHandShape);
     setResultString(result);
     setHouseHandShape(randomHouseHandShape);
-  }, [HandShapeSelected]);
+  }, [handShapeSelected]);
 
   return (
     <Styles.GameElementResult>
       <Styles.HandShapeSelectedDiv className="playerPick">
         <HandShapeDivWrapper
           setHandShapeSelected={setHandShapeSelected}
-          iconShape={HandShapeSelected}
+          iconShape={handShapeSelected}
           isLarge={true}
         />
         <Styles.HandShapeSubtitle>YOU PICKED</Styles.HandShapeSubtitle>
