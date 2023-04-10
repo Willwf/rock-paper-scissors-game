@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import triangleBg from "../../assets/images/bg-triangle.svg"
 
-export const GameElement = styled.div`
+export const RPSGameElement = styled.div`
   min-width: 85%;
   height: 42.5%;
 
@@ -25,3 +25,5 @@ export const GameElement = styled.div`
     min-width: 35%;
   }
 `
+
+export const RPSLSGameElemente = styled.div``

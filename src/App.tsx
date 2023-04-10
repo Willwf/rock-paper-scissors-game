@@ -4,11 +4,21 @@ import { Header } from "./components/Header";
 import { RulesModal } from "./components/RulesModal";
 
 export function App() {
-  const localScore = localStorage.getItem("score") ?? "0";
-
-  const [score, setScore] = useState<string>(localScore);
   const [isDefaultGameSelected, setIsDefaultGameSelected] =
     useState<boolean>(true);
+
+  const localScore =
+    localStorage.getItem(isDefaultGameSelected ? "RPSscore" : "RPSLSscore") ??
+    "0";
+
+  const [score, setScore] = useState<string>(localScore);
+
+  useEffect(() => {
+    setScore(
+      localStorage.getItem(isDefaultGameSelected ? "RPSscore" : "RPSLSscore") ??
+        "0"
+    );
+  }, [isDefaultGameSelected]);
 
   return (
     <>
@@ -17,7 +27,11 @@ export function App() {
         isDefaultGameSelected={isDefaultGameSelected}
         setIsDefaultGameSelected={setIsDefaultGameSelected}
       />
-      <GameElement score={score} setScore={setScore} />
+      <GameElement
+        score={score}
+        setScore={setScore}
+        isDefaultGameSelected={isDefaultGameSelected}
+      />
       <RulesModal />
     </>
   );

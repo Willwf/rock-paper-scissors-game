@@ -6,10 +6,11 @@ import * as Styles from "./styles";
 interface gameElementProps {
   score: string;
   setScore: Dispatch<SetStateAction<string>>;
+  isDefaultGameSelected: boolean;
 }
 
 export function GameElement(props: gameElementProps) {
-  const { setScore, score } = props;
+  const { setScore, score, isDefaultGameSelected } = props;
   const [HandShapeSelected, setHandShapeSelected] = useState<string>("");
 
   return HandShapeSelected ? (
@@ -19,8 +20,8 @@ export function GameElement(props: gameElementProps) {
       setScore={setScore}
       score={score}
     />
-  ) : (
-    <Styles.GameElement>
+  ) : isDefaultGameSelected ? (
+    <Styles.RPSGameElement>
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="paper"
@@ -36,6 +37,8 @@ export function GameElement(props: gameElementProps) {
         iconShape="rock"
         isLarge={false}
       />
-    </Styles.GameElement>
+    </Styles.RPSGameElement>
+  ) : (
+    <Styles.RPSLSGameElemente>"That's all folks!!!"</Styles.RPSLSGameElemente>
   );
 }

@@ -56,12 +56,12 @@ export function GameElementResult(props: ComponentProps) {
     ) {
       const actualScore = Number(score) + 1;
       setScore(actualScore.toString());
-      localStorage.setItem("score", actualScore.toString());
+      localStorage.setItem("RPSscore", actualScore.toString());
       return "YOU WIN";
     } else {
       const actualScore = Number(score) - 1;
       setScore(actualScore.toString());
-      localStorage.setItem("score", actualScore.toString());
+      localStorage.setItem("RPSscore", actualScore.toString());
       return "YOU LOSE";
     }
   }
