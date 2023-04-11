@@ -18,23 +18,23 @@ interface ComponentProps {
   isLarge: boolean;
 }
 
+const shapeProperties: ShapeOptions = {
+  paper: {
+    src: PaperImg,
+    alt: "Shape of an open hand symbolizing paper",
+  },
+  scissors: {
+    src: ScissorsImg,
+    alt: "Shape of a hand with two fingers raised symbolizing scissors",
+  },
+  rock: {
+    src: RockImg,
+    alt: "Shape of a closed hand symbolizing rock",
+  },
+};
+
 export function HandShapeDivWrapper(props: ComponentProps) {
   const { setHandShapeSelected, iconShape, isLarge } = props;
-
-  const shapeProperties: ShapeOptions = {
-    paper: {
-      src: PaperImg,
-      alt: "Shape of an open hand symbolizing paper",
-    },
-    scissors: {
-      src: ScissorsImg,
-      alt: "Shape of a hand with two fingers raised symbolizing scissors",
-    },
-    rock: {
-      src: RockImg,
-      alt: "Shape of a closed hand symbolizing rock",
-    },
-  };
 
   function handleClick(event: React.MouseEvent<HTMLDivElement>) {
     const iconshape = event.currentTarget.dataset.iconshape;

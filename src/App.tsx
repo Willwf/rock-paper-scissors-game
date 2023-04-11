@@ -36,7 +36,7 @@ export function App() {
         handShapeSelected={handShapeSelected}
         setHandShapeSelected={setHandShapeSelected}
       />
-      <RulesModal />
+      <RulesModal isDefaultGameSelected={isDefaultGameSelected} />
     </>
   );
 }
