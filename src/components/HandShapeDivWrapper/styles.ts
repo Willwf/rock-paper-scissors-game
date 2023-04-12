@@ -20,24 +20,72 @@ export const HandShapeDivWrapper = styled.div<HandShapeDivWrapperProps>`
     cursor: pointer;
   }
 
+  &.RPSLS {
+    width: 9.5rem;
+    height: 9.5rem;
+  }
+
   &.paper {
     grid-area: firstElement;
-    justify-self: start;
 
     background: linear-gradient(${colors.paperGradientFinal}, ${colors.paperGradientInitial});
+
+    &.RPS {
+      justify-self: start;
+    }
+
+    &.RPSLS {
+      grid-column: 6 / 9;
+      grid-row: 1 / 8;
+    }
   }
 
   &.scissors {
     grid-area: secondElement;
-    justify-self: end;
     
     background: linear-gradient(${colors.scissorsGradientFinal}, ${colors.scissorsGradientInitial});
+
+    &.RPS {
+      justify-self: end;
+    }
+    
+    &.RPSLS {
+      grid-column: 1 / 9;
+      grid-row: 1 / 3;
+    }
   }
 
   &.rock {
     grid-area: thirdElement;
     
     background: linear-gradient(${colors.rockGradientFinal}, ${colors.rockGradientInitial});
+    
+    &.RPSLS {
+      grid-column: 4 / 9;
+      grid-row: 6 / 9;
+    }
+  }
+
+  &.lizard {
+    grid-area: fourthElement;
+    
+    background: linear-gradient(${colors.lizardGradientFinal}, ${colors.lizardGradientInitial});
+    
+    &.RPSLS {
+      grid-column: 1 / 6;
+      grid-row: 6 / 9;
+    }
+  }
+
+  &.spock {
+    grid-area: fifthElement;
+    
+    background: linear-gradient(${colors.cyanGradientFinal}, ${colors.cyanGradientInitial});
+    
+    &.RPSLS {
+      grid-column: 1 / 4;
+      grid-row: 1 / 8;
+    }
   }
 
   @media (min-width: 40em) {
@@ -65,7 +113,11 @@ export const HandShapeDiv = styled.div<HandShapeDivWrapperProps>`
   border-radius: 50%;
   border-top: 0.5rem solid #00000029;
 
-  
+  &.RPSLS {
+    width: 7rem;
+    height: 7rem;
+  }
+
   &:hover {
     background-color: #c8c8c8;
   }

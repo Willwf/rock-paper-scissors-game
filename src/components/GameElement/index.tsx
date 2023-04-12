@@ -33,19 +33,53 @@ export function GameElement(props: gameElementProps) {
         setHandShapeSelected={setHandShapeSelected}
         iconShape="paper"
         isLarge={false}
+        gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
       />
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="scissors"
         isLarge={false}
+        gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
       />
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="rock"
         isLarge={false}
+        gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
       />
     </Styles.RPSGameElement>
   ) : (
-    <Styles.RPSLSGameElemente>"That's all folks!!!"</Styles.RPSLSGameElemente>
+    <Styles.RPSLSGameElemente>
+      <HandShapeDivWrapper
+        setHandShapeSelected={setHandShapeSelected}
+        iconShape="paper"
+        isLarge={false}
+        gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
+      />
+      <HandShapeDivWrapper
+        setHandShapeSelected={setHandShapeSelected}
+        iconShape="scissors"
+        isLarge={false}
+        gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
+      />
+      <HandShapeDivWrapper
+        setHandShapeSelected={setHandShapeSelected}
+        iconShape="rock"
+        isLarge={false}
+        gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
+      />
+      <HandShapeDivWrapper
+        setHandShapeSelected={setHandShapeSelected}
+        iconShape="lizard"
+        isLarge={false}
+        gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
+      />
+      <HandShapeDivWrapper
+        setHandShapeSelected={setHandShapeSelected}
+        iconShape="spock"
+        isLarge={false}
+        gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
+      />
+    </Styles.RPSLSGameElemente>
   );
 }

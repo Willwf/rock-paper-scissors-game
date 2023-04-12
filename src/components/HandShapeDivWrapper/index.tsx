@@ -3,6 +3,8 @@ import * as Styles from "./styles";
 import PaperImg from "../../assets/images/icon-paper.svg";
 import ScissorsImg from "../../assets/images/icon-scissors.svg";
 import RockImg from "../../assets/images/icon-rock.svg";
+import LizardImg from "../../assets/images/icon-lizard.svg";
+import SpockImg from "../../assets/images/icon-spock.svg";
 import { Dispatch, SetStateAction } from "react";
 
 interface ShapeOptions {
@@ -16,6 +18,7 @@ interface ComponentProps {
   setHandShapeSelected: Dispatch<SetStateAction<string>>;
   iconShape: string;
   isLarge: boolean;
+  gameSelected: string;
 }
 
 const shapeProperties: ShapeOptions = {
@@ -25,16 +28,24 @@ const shapeProperties: ShapeOptions = {
   },
   scissors: {
     src: ScissorsImg,
-    alt: "Shape of a hand with two fingers raised symbolizing scissors",
+    alt: "Shape of a closed fist with the middle and index fingers extended symbolizing scissors",
   },
   rock: {
     src: RockImg,
-    alt: "Shape of a closed hand symbolizing rock",
+    alt: "Shape of a closed fist symbolizing rock",
+  },
+  lizard: {
+    src: LizardImg,
+    alt: "Shape of the animal lizard symbolizing lizard",
+  },
+  spock: {
+    src: SpockImg,
+    alt: "Shape of a hand with the thumb extended, while the fingers are parted between the middle and ring finger. It's the vulcan salute from Star Trek symbolizing spock.",
   },
 };
 
 export function HandShapeDivWrapper(props: ComponentProps) {
-  const { setHandShapeSelected, iconShape, isLarge } = props;
+  const { setHandShapeSelected, iconShape, isLarge, gameSelected } = props;
 
   function handleClick(event: React.MouseEvent<HTMLDivElement>) {
     const iconshape = event.currentTarget.dataset.iconshape;
@@ -45,10 +56,10 @@ export function HandShapeDivWrapper(props: ComponentProps) {
     <Styles.HandShapeDivWrapper
       onClick={handleClick}
       data-iconshape={iconShape}
-      className={iconShape}
+      className={`${iconShape} ${gameSelected}`}
       isLarge={isLarge}
     >
-      <Styles.HandShapeDiv isLarge={isLarge}>
+      <Styles.HandShapeDiv className={gameSelected} isLarge={isLarge}>
         <Styles.HandShapeImg
           src={shapeProperties[iconShape].src}
           alt={shapeProperties[iconShape].alt}
