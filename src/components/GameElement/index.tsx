@@ -26,6 +26,7 @@ export function GameElement(props: gameElementProps) {
       handShapeSelected={handShapeSelected}
       setScore={setScore}
       score={score}
+      gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
     />
   ) : isDefaultGameSelected ? (
     <Styles.RPSGameElement>

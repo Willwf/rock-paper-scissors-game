@@ -7,26 +7,22 @@ interface ComponentProps {
   handShapeSelected: string;
   setScore: Dispatch<SetStateAction<string>>;
   score: string;
+  gameSelected: string;
 }
 
 interface handShapes {
   [key: string]: string;
 }
 
-function getRandomHandShape() {
-  const handShapes: handShapes = {
-    "1": "paper",
-    "2": "scissors",
-    "3": "rock",
-  };
-
-  const randomNumber = (Math.floor(Math.random() * 3) + 1).toString();
-
-  return handShapes[randomNumber];
-}
-
 export function GameElementResult(props: ComponentProps) {
-  const { setHandShapeSelected, handShapeSelected, setScore, score } = props;
+  const {
+    setHandShapeSelected,
+    handShapeSelected,
+    setScore,
+    score,
+    gameSelected,
+  } = props;
+
   const [loading, setLoading] = useState(true);
   const [resultString, setResultString] = useState<string>("");
   const [houseHandShape, setHouseHandShape] = useState<string>("");
@@ -39,6 +35,26 @@ export function GameElementResult(props: ComponentProps) {
     return () => clearTimeout(timeout);
   }, [handShapeSelected]);
 
+  function getRandomHandShape(gameSelected: string) {
+    const handShapes: handShapes = {
+      "1": "paper",
+      "2": "scissors",
+      "3": "rock",
+      "4": "lizard",
+      "5": "spock",
+    };
+
+    if (gameSelected === "RPS") {
+      const randomNumber = (Math.floor(Math.random() * 3) + 1).toString();
+      console.log(randomNumber);
+      return handShapes[randomNumber];
+    } else {
+      const randomNumber = (Math.floor(Math.random() * 5) + 1).toString();
+      console.log(randomNumber);
+      return handShapes[randomNumber];
+    }
+  }
+
   function handlePlayAgainButton() {
     setHandShapeSelected("");
   }
@@ -50,9 +66,16 @@ export function GameElementResult(props: ComponentProps) {
     if (handShapeSelected === houseHandShape) {
       return "DRAW";
     } else if (
-      (handShapeSelected === "rock" && houseHandShape === "scissors") ||
-      (handShapeSelected === "scissors" && houseHandShape === "paper") ||
-      (handShapeSelected === "paper" && houseHandShape === "rock")
+      (handShapeSelected === "rock" &&
+        (houseHandShape === "scissors" || houseHandShape === "lizard")) ||
+      (handShapeSelected === "scissors" &&
+        (houseHandShape === "paper" || houseHandShape === "lizard")) ||
+      (handShapeSelected === "paper" &&
+        (houseHandShape === "rock" || houseHandShape === "spock")) ||
+      (handShapeSelected === "lizard" &&
+        (houseHandShape === "paper" || houseHandShape === "spock")) ||
+      (handShapeSelected === "spock" &&
+        (houseHandShape === "rock" || houseHandShape === "scissors"))
     ) {
       const actualScore = Number(score) + 1;
       setScore(actualScore.toString());
@@ -67,7 +90,7 @@ export function GameElementResult(props: ComponentProps) {
   }
 
   useEffect(() => {
-    const randomHouseHandShape = getRandomHandShape();
+    const randomHouseHandShape = getRandomHandShape(gameSelected);
     const result = getGameResult(handShapeSelected, randomHouseHandShape);
     setResultString(result);
     setHouseHandShape(randomHouseHandShape);
@@ -80,6 +103,7 @@ export function GameElementResult(props: ComponentProps) {
           setHandShapeSelected={setHandShapeSelected}
           iconShape={handShapeSelected}
           isLarge={true}
+          gameSelected={gameSelected}
         />
         <Styles.HandShapeSubtitle>YOU PICKED</Styles.HandShapeSubtitle>
       </Styles.HandShapeSelectedDiv>
@@ -91,6 +115,7 @@ export function GameElementResult(props: ComponentProps) {
             setHandShapeSelected={setHandShapeSelected}
             iconShape={houseHandShape}
             isLarge={true}
+            gameSelected={gameSelected}
           />
         )}
         <Styles.HandShapeSubtitle>THE HOUSE PICKED</Styles.HandShapeSubtitle>
