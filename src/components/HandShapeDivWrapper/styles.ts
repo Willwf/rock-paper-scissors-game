@@ -2,7 +2,13 @@ import styled from 'styled-components';
 import * as colors from "../../styles/variables"
 
 interface HandShapeDivWrapperProps {
-  isLarge: boolean;
+  size: "small" | "medium" | "large";
+}
+
+const remSizes = {
+  small: 9.5,
+  medium: 13,
+  large: 18.5,
 }
 
 export const HandShapeDivWrapper = styled.div<HandShapeDivWrapperProps>`
@@ -10,19 +16,14 @@ export const HandShapeDivWrapper = styled.div<HandShapeDivWrapperProps>`
   justify-content: center;
   align-items: center;
 
-  width: 13rem;
-  height: 13rem;
+  width: ${props => remSizes[props.size]}rem;
+  height: ${props => remSizes[props.size]}rem;
 
   border-radius: 50%;
   border-bottom: 0.5rem solid #00000040;
 
   &:hover {
     cursor: pointer;
-  }
-
-  &.RPSLS {
-    width: 9.5rem;
-    height: 9.5rem;
   }
 
   &.paper {
@@ -89,15 +90,15 @@ export const HandShapeDivWrapper = styled.div<HandShapeDivWrapperProps>`
   }
 
   @media (min-width: 40em) {
-    width: ${(props) => (props.isLarge ? "20rem" : "16rem")};
-    height: ${(props) => (props.isLarge ? "20rem" : "16rem")};
+    width: ${remSizes["medium"]}rem;
+    height: ${remSizes["medium"]}rem;
 
     border-bottom: 0.8rem solid #00000040;
   }
 
   @media (min-width: 65em) {
-    width: ${(props) => (props.isLarge ? "22rem" : "16rem")};
-    height: ${(props) => (props.isLarge ? "22rem" : "16rem")};
+    width: ${props => remSizes[props.size] + 3.5}rem;
+    height: ${props => remSizes[props.size] + 3.5}rem;
   }
 `
 
@@ -106,32 +107,27 @@ export const HandShapeDiv = styled.div<HandShapeDivWrapperProps>`
   justify-content: center;
   align-items: center;
 
-  width: 10rem;
-  height: 10rem;
+  width: ${props => remSizes[props.size] - 3}rem;
+  height: ${props => remSizes[props.size] - 3}rem;
 
   background-color: white;
   border-radius: 50%;
   border-top: 0.5rem solid #00000029;
-
-  &.RPSLS {
-    width: 7rem;
-    height: 7rem;
-  }
 
   &:hover {
     background-color: #c8c8c8;
   }
 
   @media (min-width: 40em) {
-    width: ${(props) => (props.isLarge ? "14rem" : "12rem")};
-    height: ${(props) => (props.isLarge ? "14rem" : "12rem")};
+    width: ${remSizes["medium"] - 3}rem;
+    height: ${remSizes["medium"] - 3}rem;
 
     border-top: .8rem solid #00000029;
   }
 
   @media (min-width: 65em) {
-    width: ${(props) => (props.isLarge ? "16rem" : "12rem")};
-    height: ${(props) => (props.isLarge ? "16rem" : "12rem")};
+    width: ${props => remSizes[props.size] - 1}rem;
+    height: ${props => remSizes[props.size] - 1}rem;
   }
 `
 export const HandShapeImg = styled.img`

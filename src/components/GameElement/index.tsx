@@ -33,19 +33,19 @@ export function GameElement(props: gameElementProps) {
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="paper"
-        isLarge={false}
+        size={"medium"}
         gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
       />
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="scissors"
-        isLarge={false}
+        size={"medium"}
         gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
       />
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="rock"
-        isLarge={false}
+        size={"medium"}
         gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
       />
     </Styles.RPSGameElement>
@@ -54,31 +54,31 @@ export function GameElement(props: gameElementProps) {
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="paper"
-        isLarge={false}
+        size={"small"}
         gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
       />
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="scissors"
-        isLarge={false}
+        size={"small"}
         gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
       />
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="rock"
-        isLarge={false}
+        size={"small"}
         gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
       />
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="lizard"
-        isLarge={false}
+        size={"small"}
         gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
       />
       <HandShapeDivWrapper
         setHandShapeSelected={setHandShapeSelected}
         iconShape="spock"
-        isLarge={false}
+        size={"small"}
         gameSelected={isDefaultGameSelected ? "RPS" : "RPSLS"}
       />
     </Styles.RPSLSGameElemente>

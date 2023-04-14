@@ -17,7 +17,7 @@ interface ShapeOptions {
 interface ComponentProps {
   setHandShapeSelected: Dispatch<SetStateAction<string>>;
   iconShape: string;
-  isLarge: boolean;
+  size: "small" | "medium" | "large";
   gameSelected: string;
 }
 
@@ -45,7 +45,7 @@ const shapeProperties: ShapeOptions = {
 };
 
 export function HandShapeDivWrapper(props: ComponentProps) {
-  const { setHandShapeSelected, iconShape, isLarge, gameSelected } = props;
+  const { setHandShapeSelected, iconShape, size, gameSelected } = props;
 
   function handleClick(event: React.MouseEvent<HTMLDivElement>) {
     const iconshape = event.currentTarget.dataset.iconshape;
@@ -57,9 +57,9 @@ export function HandShapeDivWrapper(props: ComponentProps) {
       onClick={handleClick}
       data-iconshape={iconShape}
       className={`${iconShape} ${gameSelected}`}
-      isLarge={isLarge}
+      size={size}
     >
-      <Styles.HandShapeDiv className={gameSelected} isLarge={isLarge}>
+      <Styles.HandShapeDiv className={gameSelected} size={size}>
         <Styles.HandShapeImg
           src={shapeProperties[iconShape].src}
           alt={shapeProperties[iconShape].alt}
