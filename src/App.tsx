@@ -12,8 +12,10 @@ export function App() {
     "0";
 
   const [score, setScore] = useState<string>(localScore);
+  const [handShapeSelected, setHandShapeSelected] = useState<string>("");
 
   useEffect(() => {
+    setHandShapeSelected("");
     setScore(
       localStorage.getItem(isDefaultGameSelected ? "RPSscore" : "RPSLSscore") ??
         "0"
@@ -31,8 +33,10 @@ export function App() {
         score={score}
         setScore={setScore}
         isDefaultGameSelected={isDefaultGameSelected}
+        handShapeSelected={handShapeSelected}
+        setHandShapeSelected={setHandShapeSelected}
       />
-      <RulesModal />
+      <RulesModal isDefaultGameSelected={isDefaultGameSelected} />
     </>
   );
 }

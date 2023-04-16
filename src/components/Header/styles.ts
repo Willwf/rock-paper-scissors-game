@@ -64,7 +64,7 @@ export const Logo = styled.img`
   height: fit-content;
 
   @media (min-width: 40em) {
-    max-width: 15vw;
+    max-width: 100%;
     max-height: 10vw;
   }
 `
