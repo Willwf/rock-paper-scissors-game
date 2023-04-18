@@ -53,11 +53,19 @@ Not sure what Rock, Paper, Scissors, Lizard, Spock is? [Check out this clip from
 
 ### Screenshots
 
-<!-- ![](./screenshot.jpg) -->
+![Rock Paper Scissors game desktop](./public/desktop1.png "Rock Paper Scissors game desktop")
+![Rock Paper Scissors, Lizard, Spock game desktop](./public/desktop2.png "Rock Paper Scissors, Lizard, Spock game desktop")  
+![Win Result](./public/desktop4.png "Win Result")  
+_RPS e RPSLS games - Desktop Version_
 
-```
-In construction...
-```
+---
+
+![Rock Paper Scissors game mobile](./public/mobile1.png "Rock Paper Scissors game mobile")
+![Rock Paper Scissors, Lizard, Spock game mobile](./public/mobile2.png "Rock Paper Scissors, Lizard, Spock game mobile")  
+![Lose Result](./public/mobile5.png "Lose Result")  
+_RPS e RPSLS games - Mobile Version_
+
+---
 
 ### Links
 
@@ -81,17 +89,9 @@ In construction...
 
 This is my first project where I've used TypeScript, aside from some exercises from videos and classes. It has been quite different because unexpected errors occurred due to behaviors that I had not encountered in previous projects. The notes and warnings from the IDE were very helpful to me. Although I am still learning, I have enjoyed using TypeScript. I had to spend some time thinking about the logic to make the game work and had to do a lot of research to make it happen. I had previously used Grid, but in this project, I learned different ways to achieve my desired outcome.
 
-```
-In construction...
-```
-
 ### Continued development
 
-I plan to continue using TypeScript in my future projects to enhance my understanding and broaden my expertise.
-
-```
-In construction...
-```
+I plan to continue using TypeScript in my future projects to enhance my understanding and broaden my expertise. And I want to start practicing animations using CSS. I feel that would make everything so much more good to see.
 
 ### Useful resources
 
